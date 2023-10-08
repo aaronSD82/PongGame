@@ -17,9 +17,10 @@
         <option value="10" id="dificil">Dificil</option>
       </select>
     </div>
-    <button id="start"></button>
   </div>
   <div id="contenedor">
+    <div class="puntosPlayer1" id="puntos1"></div>
+    <div class="puntosPlayer2" id="puntos2"></div>
     <div id="pelota"></div>
     <div class="pala1" id="pala1"></div>
     <div class="pala2" id="pala2"></div>
@@ -33,15 +34,23 @@
     const pala2 = document.getElementById("pala2");
     const pala1 = document.getElementById("pala1");
     const difNormal = document.getElementById("normal");
-    console.log(Math.floor(Math.random() * 41) * 10); 
+    const marcador1 = document.getElementById("puntos1");
+    const marcador2 = document.getElementById("puntos2");
+    //console.log(Math.floor((Math.random() * 90) + 20) * 10);
+    //Math.round(Math.random() * (max - min) + min);
 
-    let posX = 0;
-    let posY = 0;
-    let velocidad = 10;
+    let posX = 10;
+    let posY = 10;
+    let velocidad = 0;
     let directionX = 1;
     let directionY = 1;
     let topPala2 = 300;
     let topPala1 = 300;
+    let puntosPlayer1 = 0;
+    let puntosPlayer2 = 0;
+
+    marcador1.innerText = puntosPlayer1;
+    marcador2.innerText = puntosPlayer2;
 
 
     function moverPelota() {
@@ -51,8 +60,21 @@
       const limiteDerecho = contenedor.clientWidth - pelota.clientWidth;
       const limiteInferior = contenedor.clientHeight - pelota.clientHeight;
 
-      if (posX > limiteDerecho || posX < 0) {
-        directionX *= -1;
+      if (posX == limiteDerecho) {
+        puntosPlayer1 += 1;
+        marcador1.innerText = puntosPlayer1;
+        posX = 10;
+        posY = 10;
+        directionX = 1;
+        velocidad = 0;
+      }
+      else if (posX == 0) {
+        puntosPlayer2 += 1;
+        marcador2.innerText = puntosPlayer2;
+        posX = 10;
+        posY = 10;
+        directionX = 1;
+        velocidad = 0;
       }
 
       if (posY > limiteInferior || posY < 0) {
@@ -158,6 +180,10 @@
             }
             else topPala2 -= 30;
             break;
+          }
+          case "Enter":{
+
+            velocidad += 10;
           }
 
         }
