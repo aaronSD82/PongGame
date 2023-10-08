@@ -57,25 +57,10 @@
       posX += (velocidad * directionX);
       posY += (velocidad * directionY);
 
-      const limiteDerecho = contenedor.clientWidth - pelota.clientWidth;
       const limiteInferior = contenedor.clientHeight - pelota.clientHeight;
+      const limiteDerecho = contenedor.clientWidth - pelota.clientWidth;
 
-      if (posX == limiteDerecho) {
-        puntosPlayer1 += 1;
-        marcador1.innerText = puntosPlayer1;
-        posX = 10;
-        posY = 10;
-        directionX = 1;
-        velocidad = 0;
-      }
-      else if (posX == 0) {
-        puntosPlayer2 += 1;
-        marcador2.innerText = puntosPlayer2;
-        posX = 10;
-        posY = 10;
-        directionX = 1;
-        velocidad = 0;
-      }
+      comprobarGoal(limiteDerecho);
 
       if (posY > limiteInferior || posY < 0) {
         directionY *= -1;
@@ -140,6 +125,26 @@
       }
     }
 
+    function comprobarGoal(limiteDerecho){
+      if (posX == limiteDerecho) {
+        puntosPlayer1 += 1;
+        marcador1.innerText = puntosPlayer1;
+        posX = 10;
+        posY = 10;
+        directionX = 1;
+        velocidad = 0;
+      }
+      else if (posX == 0) {
+        puntosPlayer2 += 1;
+        marcador2.innerText = puntosPlayer2;
+        posX = 10;
+        posY = 10;
+        directionX = 1;
+        velocidad = 0;
+      }
+    }
+
+    
     /* let totalTranscurrido = 0;
     let diferencia = 0;
  */
@@ -182,7 +187,6 @@
             break;
           }
           case "Enter":{
-
             velocidad += 10;
           }
 
