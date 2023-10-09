@@ -98,15 +98,15 @@
 
       if ((posX < 500 && directionX == -1) && (directionY == -1)) {
         if (posY < topPala1 + 100) {
-          topPala1 -= 5;
+          topPala1 -= 10;
         }
-        else topPala1 += 5;
+        else topPala1 += 10;
       }
       else if ((posX < 500 && directionX == -1) && (directionY == 1)) {
         if (posY > topPala1 + 100) {
-          topPala1 += 5;
+          topPala1 += 10;
         }
-        else topPala1 -= 5;
+        else topPala1 -= 10;
       }
     }
 
@@ -137,8 +137,8 @@
       else if (posX == 0) {
         puntosPlayer2 += 1;
         marcador2.innerText = puntosPlayer2;
-        posX =  Math.floor((Math.random() * 40) + 1) * 10;
-        posY = Math.floor((Math.random() * 25) + 1) * 10;
+        posX =  Math.floor((Math.random() * 30) + 15) * 10;
+        posY = Math.floor((Math.random() * 60) + 1) * 10;
         directionX = 1;
         velocidad = 0;
       }
