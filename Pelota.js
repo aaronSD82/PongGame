@@ -1,7 +1,5 @@
 const contenedor = document.getElementById("contenedor");
 const pelota = document.getElementById("pelota");
-const botonRapido = document.getElementById("botonRapido");
-const botonLento = document.getElementById("botonLento");
 const pala2 = document.getElementById("pala2");
 const pala1 = document.getElementById("pala1");
 const dificultad = document.getElementById("dificultad");
