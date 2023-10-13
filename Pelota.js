@@ -5,6 +5,7 @@ const pala1 = document.getElementById("pala1");
 const dificultad = document.getElementById("dificultad");
 const marcador1 = document.getElementById("puntos1");
 const marcador2 = document.getElementById("puntos2");
+const sonido = document.getElementById("audio");
 
 let posX = 10;
 let posY = 10;
@@ -51,6 +52,7 @@ function comprobarColisionPala() {
     for (let i = topPala2; i < topPala2 + 200; i += 5) {
 
         if ((posX == 1380 && posY == i) || (posX == 1380 && posY + 10 == i)) {
+            sonido.play();
             directionX *= -1
             break;
         }
@@ -59,6 +61,7 @@ function comprobarColisionPala() {
             break;
         }
     }
+    
 }
 
 function turnoCPU() {
@@ -82,6 +85,7 @@ function comprobarColisionCPU() {
     for (let i = topPala1; i < topPala1 + 200; i += 5) {
 
         if ((posX == 110 && posY == i) || (posX == 110 && posY + 10 == i)) {
+            sonido.play();
             directionX *= -1
             break;
         }
