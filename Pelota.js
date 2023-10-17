@@ -5,7 +5,7 @@ const pala1 = document.getElementById("pala1");
 const dificultad = document.getElementById("dificultad");
 const marcador1 = document.getElementById("puntos1");
 const marcador2 = document.getElementById("puntos2");
-const sonido = document.getElementById("audio");
+const sonido = new Audio("../PingPong 6031_55_5_preview.mp3")
 
 let posX = 10;
 let posY = 10;
