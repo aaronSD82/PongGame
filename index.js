@@ -102,7 +102,7 @@ function comprobarColisionCPU() {
 }
 
 function comprobarGoal(limiteDerecho) {
-    if (posX == limiteDerecho) {
+    if (posX > limiteDerecho) {
         puntosPlayer1 += 1;
         marcador1.innerText = puntosPlayer1;
         posX = Math.floor((Math.random() * 30) + 15) * 10;
