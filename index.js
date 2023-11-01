@@ -58,7 +58,6 @@ function comprobarColisionPala() {
     for (let i = topPala2; i < topPala2 + 200; i += 5) {
 
         if ((posX + numeroDecimal === posicionPalaEnX && posY === i) || (posX + numeroDecimal === posicionPalaEnX && posY + 10 === i)) {
-            sonido.play();
             directionX *= -1
             break;
         }
@@ -102,7 +101,7 @@ function comprobarColisionCPU() {
 }
 
 function comprobarGoal(limiteDerecho) {
-    if (posX == limiteDerecho) {
+    if (posX > limiteDerecho) {
         puntosPlayer1 += 1;
         marcador1.innerText = puntosPlayer1;
         posX = Math.floor((Math.random() * 30) + 15) * 10;
