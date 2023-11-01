@@ -47,18 +47,27 @@ function moverPelota() {
 }
 
 function comprobarColisionPala() {
+    
+    let posicionPalaEnX = contenedor.clientWidth - 130;
+    let decimal = posicionPalaEnX/10;
+    let converString = decimal.toString();
+    let recogerDecimal = converString.indexOf(".");
+    let numeroDecimal = recogerDecimal > -1 ? parseInt(converString.charAt(recogerDecimal + 1)) : 0;
+    
 
     for (let i = topPala2; i < topPala2 + 200; i += 5) {
 
-        if ((posX == 1380 && posY == i) || (posX == 1380 && posY + 10 == i)) {
+        if ((posX + numeroDecimal === posicionPalaEnX && posY === i) || (posX + numeroDecimal === posicionPalaEnX && posY + 10 === i)) {
+            sonido.play();
             directionX *= -1
             break;
         }
-        if ((posX == 1390 && posY + 10 == i) || (posX == 1390 && posY == i)) {
+        if ((posX + numeroDecimal === (contenedor.clientWidth - 110) && posY + 10 === i) || (posX + numeroDecimal === (contenedor.clientWidth - 110) && posY === i)) {
             directionY *= -1
             break;
         }
     }
+    
 }
 
 function turnoCPU() {
